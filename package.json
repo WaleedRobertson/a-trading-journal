@@ -3,6 +3,7 @@
     "express": "^4.19.2"
   },
   "name": "a-trading-journal",
+  "type": "module",
   "version": "1.0.0",
   "description": "## User Stories",
   "main": "server.js",
