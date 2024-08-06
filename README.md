@@ -2,27 +2,44 @@
 
 ## User Stories
 
-As a user I would like to create a user profile
+MVP:
 
-As a user I would like to be presented with a login page for entering my login credentials
 
-As a user I would like to add a new journal entry ( currency pair, time, date, checklist etc)
+    As a user I would like to create a user profile
 
-As a user I would like to fetch past journal entries as a list 
+    As a user I would like to be presented with a login page for entering my login credentials
 
-As a user I would like to update past journal with results of trades
+    As a user I would like to add a new journal entry ( currency pair, time, date, checklist etc)
 
-As a user I would like to delete my profile 
+    As a user I would like to fetch past journal entries as a list 
 
-As a user I would like to delete a journal entry 
+    As a user I would like to update past journal with results of trades
 
-As a user I would like to fetch a single journal entry 
+    As a user I would like to delete my profile 
+
+    As a user I would like to delete a journal entry 
+
+    As a user I would like to fetch a single journal entry 
+
+STRETCH GOALS: 
+
+    Calander UI 
+
+    Color coded journal entries indicating trade outcome (red for loss, green for a gain)
+
+
 
 ## What we're building: A trading journal used to log a user’s previous trades . The purpose of A Trading Journal is to provide a reflective track record of trades taken. A Trading Journal tracks date, time, and other day trading metrics (entry, exit, trade result, etc.) 
 
 ![Landing Page](/Assets/Screenshot%202024-08-02%20at%202.09.04 PM.png)
+
+
 ![Sign Up Page](/Assets/Screenshot%202024-08-02%20at%202.09.13 PM.png)
 ![Index Page](/Assets/Screenshot%202024-08-02%20at%202.09.23 PM.png)
+
+Add new journal entry button on the journal view 
+
+
 ![Journal Entry Page](/Assets/Screenshot%202024-08-02%20at%202.09.33 PM.png)
 
 ## Technologies Used: 
