@@ -1,12 +1,12 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
- User = require('../models/user.js');
+import User from '../models/user.js';
 
 
 router.get('/', async(req, res) => {
   try{
     const currentUser = await User.findById(req.session.user._id)
-    res.render('foods/index.ejs', {user: currentUser, pantry: currentUser.pantry})
+    res.render('entries/index.ejs', {user: currentUser, journal: currentUser.journal})
   }
   catch (error){
     console.log(error)
@@ -24,13 +24,13 @@ router.post('/', async (req, res) => {
     const currentUser = await User.findById(req.session.user._id);
 
     // Add the new food item to the user's pantry
-    currentUser.pantry.push(req.body);
+    currentUser.journal.push(req.body);
 
     // Save the updated user document to the database
     await currentUser.save();
 
     // Redirect to the user's foods page, passing the user's ID in the URL
-    res.redirect(`/users/${currentUser._id}/foods`);
+    res.redirect(`/users/${currentUser._id}/entries`);
   } catch (error) {
     // Log any errors and redirect back to the home page
     console.log(error);
@@ -43,12 +43,12 @@ router.get('/:itemId', async (req, res) => {
     // Look up the user from req.session
     const currentUser = await User.findById(req.session.user._id);
     // Find the application by the applicationId supplied from req.params
-    const foodItem = currentUser.pantry.id(req.params.itemId);
+    const foodItem = currentUser.journal.id(req.params.itemId);
     if (!foodItem) {
       return res.redirect('/');
     }
     // Render the show view, passing the application data in the context object
-    res.render('foods/show.ejs', {
+    res.render('entries/show.ejs', {
       user: currentUser,
       food: foodItem
     });
@@ -113,4 +113,4 @@ router.put('/:itemId', async (req, res) => {
   
 
 
-module.exports = router;
+export default router; 

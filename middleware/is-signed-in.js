@@ -5,4 +5,4 @@ const isSignedIn = (req, res, next) => {
     res.redirect('/auth/sign-in');
   };
   
-  module.exports = isSignedIn;
+  export default isSignedIn;

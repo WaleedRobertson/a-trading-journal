@@ -5,5 +5,5 @@ const passUserToView = (req, res, next) => {
     next()
   }
   
-  module.exports = passUserToView;
+  export default passUserToView;
   

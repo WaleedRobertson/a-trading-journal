@@ -1,17 +1,18 @@
-const dotenv = require('dotenv');
+import dotenv from 'dotenv';
 dotenv.config();
-const express = require('express');
-const app = express();
-const mongoose = require('mongoose');
-const methodOverride = require('method-override');
-const morgan = require('morgan');
-const session = require('express-session');
-const isSignedIn = require('./middleware/is-signed-in.js');
-const passUserToView = require('./middleware/pass-user-to-view.js');
-const User = require('./models/user.js');
-const authController = require('./controllers/auth.js');
-const foodsController = require('./controllers/foods.js');
+import express from 'express';
+import mongoose from 'mongoose';
+import methodOverride from 'method-override';
+import morgan from 'morgan';
+import session from 'express-session';
+import isSignedIn from './middleware/is-signed-in.js';
+import passUserToView from './middleware/pass-user-to-view.js';
+import User from './models/user.js';
+import authController from './controllers/auth.js';
+import foodsController from './controllers/entries.js';
 const port = process.env.PORT ? process.env.PORT : '3000';
+
+const app = express()
 
 mongoose.connect(process.env.MONGODB_URI);
 
