@@ -2,20 +2,20 @@
 <html lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Pantry</title>
+    <title>My Journal</title>
   </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1>Welcome to my Pantry</h1>
+    <h1>Welcome to my Journal</h1>
     <a href="/users/<%= user._id %>/foods/new">Add New Item</a>
-    <% if (pantry.length > 0) { %>
-        <% pantry.forEach((food) => { %>
+    <% if (journal.length > 0) { %>
+        <% journal.forEach((food) => { %>
             <a href="/users/<%= user._id %>/foods/<%= food._id %>">
                 <li><%= food.name %></li>
             </a>
         <% }); %>
     <% } else { %>
-        <p>There are no items in this pantry.</p>
+        <p>You haven't tracked any trades with us.</p>
     <% } %>
   </body>
 </html>
