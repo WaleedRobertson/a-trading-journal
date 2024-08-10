@@ -7,11 +7,11 @@
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1><%= food.name %> </h1>
-    <a href="/users/<%= user._id %>/entries/<%= food._id %>/edit">
+    <h1><%= foods.name %> </h1>
+    <a href="/<%= user._id %>/entries/<%= foods._id %>/edit">
         Edit 
     </a>
-    <form action="/users/<%= user._id %>/entries/<%= food._id %>?_method=DELETE" method="POST" style="display:inline;">
+    <form action="/users/<%= user._id %>/entries/<%= journal._id %>?_method=DELETE" method="POST" style="display:inline;">
         <button type="submit">Delete</button>
     </form>
 </body>

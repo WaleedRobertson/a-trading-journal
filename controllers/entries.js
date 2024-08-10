@@ -69,7 +69,7 @@ router.delete('/:itemId', async (req, res) => {
     // Save changes to the user
     await currentUser.save();
     // Redirect back to the applications index view
-    res.redirect(`/users/${currentUser._id}/foods`);
+    res.redirect(`/users/${currentUser._id}/entries`);
   }
   catch(error) {
     // If any errors, log them and redirect back home
@@ -103,7 +103,7 @@ router.put('/:itemId', async (req, res) => {
     await currentUser.save();
     // Redirect back to the show view of the current application
     res.redirect(
-      `/users/${currentUser._id}/foods/${req.params.itemId}`
+      `/users/${currentUser._id}/entries/${req.params.itemId}`
     );
   } catch (error) {
     console.log(error);
