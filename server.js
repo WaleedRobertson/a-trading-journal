@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 import express from 'express';
+const app = express()
 import mongoose from 'mongoose';
 import methodOverride from 'method-override';
 import morgan from 'morgan';
@@ -11,8 +12,6 @@ import User from './models/user.js';
 import authController from './controllers/auth.js';
 import entriesController from './controllers/entries.js';
 const port = process.env.PORT ? process.env.PORT : '3000';
-
-const app = express()
 
 mongoose.connect(process.env.MONGODB_URI);
 
