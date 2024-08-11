@@ -2,6 +2,12 @@ import dotenv from 'dotenv';
 dotenv.config();
 import express from 'express';
 const app = express();
+
+app.set('view engine', 'ejs');
+app.set('views', './views');
+
+app.use(express.static('public'));
+
 import mongoose from 'mongoose';
 import methodOverride from 'method-override';
 import morgan from 'morgan';
@@ -24,7 +30,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 // app.use(morgan('dev'));
 
-app.use(express.static(path.join(__dirname, "public")));
 
 
 app.use(

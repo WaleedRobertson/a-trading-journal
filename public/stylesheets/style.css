@@ -1,0 +1,50 @@
+/* Your CSS styles here */
+/* style.css */
+
+body {
+    font-family: 'Roboto', sans-serif; /* Replace with your preferred font */
+    background-color: #121212;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1, h2, h3 {
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+  }
+  
+  p {
+    color: #ccc;
+    line-height: 1.5;
+  }
+  
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /* Add more elements and styles as needed */
+  nav {
+    display: flex;
+    justify-content: space-between; /* Distributes items evenly */
+    align-items: center; /* Vertically centers items */
+    background-color: #333; /* Optional: Set background color */
+    padding: 10px; /* Add padding for spacing */
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  nav li {
+    margin: 0 10px;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+  }
+   

@@ -1,11 +1,22 @@
 <nav>
     <a href="/">Home</a>
     <% if(user) { %>
-      <a href="/users/<%=user._id%>/foods">View my Journal</a>
-      <a href="/users">Traders</a>
-      <a href="/auth/sign-out">Sign Out</a>
+      <ul>
+        <li> <a href="/users/<%=user._id%>/foods">View my Journal</a></li>
+          <li><a href="/users">Traders</a></li>
+            <li><a href="/auth/sign-out">Sign Out</a></li>
     <% } else { %>
-      <a href="/auth/sign-in">Sign In</a>
-      <a href="/auth/sign-up">Sign Up</a>
+      <li><a href="/auth/sign-in">Sign In</a></li>
+      <li><a href="/auth/sign-up">Sign Up</a></li>
     <% } %>
+  </ul>
   </nav>
+
+  <!-- <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav> -->
+  
