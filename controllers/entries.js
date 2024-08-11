@@ -6,7 +6,7 @@ import User from '../models/user.js';
 router.get('/', async(req, res) => {
   try{
     const currentUser = await User.findById(req.session.user._id)
-    res.render('entries/index.ejs', {user: currentUser, journal: currentUser.journal})
+    res.render('entries/index.ejs', {user: currentUser, pantry: currentUser.pantry})
   }
   catch (error){
     console.log(error)
@@ -24,13 +24,13 @@ router.post('/', async (req, res) => {
     const currentUser = await User.findById(req.session.user._id);
 
     // Add the new food item to the user's pantry
-    currentUser.journal.push(req.body);
+    currentUser.pantry.push(req.body);
 
     // Save the updated user document to the database
     await currentUser.save();
 
     // Redirect to the user's foods page, passing the user's ID in the URL
-    res.redirect(`/users/${currentUser._id}/entries`);
+    res.redirect(`/users/${currentUser._id}/foods`);
   } catch (error) {
     // Log any errors and redirect back to the home page
     console.log(error);
@@ -43,7 +43,7 @@ router.get('/:itemId', async (req, res) => {
     // Look up the user from req.session
     const currentUser = await User.findById(req.session.user._id);
     // Find the application by the applicationId supplied from req.params
-    const foodItem = currentUser.journal.id(req.params.itemId);
+    const foodItem = currentUser.pantry.id(req.params.itemId);
     if (!foodItem) {
       return res.redirect('/');
     }
@@ -65,11 +65,11 @@ router.delete('/:itemId', async (req, res) => {
     const currentUser = await User.findById(req.session.user._id);
     // Use the Mongoose .deleteOne() method to delete 
     // an application using the id supplied from req.params
-    currentUser.journal.id(req.params.itemId).deleteOne();
+    currentUser.pantry.id(req.params.itemId).deleteOne();
     // Save changes to the user
     await currentUser.save();
     // Redirect back to the applications index view
-    res.redirect(`/users/${currentUser._id}/entries`);
+    res.redirect(`/users/${currentUser._id}/foods`);
   }
   catch(error) {
     // If any errors, log them and redirect back home
@@ -81,9 +81,9 @@ router.delete('/:itemId', async (req, res) => {
 router.get('/:itemId/edit', async(req,res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
-    const journal = currentUser.journal.id(req.params.itemId);
+    const pantry = currentUser.pantry.id(req.params.itemId);
     res.render('entries/edit.ejs', {
-      journal: journal,
+      pantry: pantry,
     });
   } catch (error) {
     console.log(error);
@@ -96,14 +96,14 @@ router.put('/:itemId', async (req, res) => {
     // Find the user from req.session
     const currentUser = await User.findById(req.session.user._id);
     // Find the current application from the id supplied by req.params
-    const journal = currentUser.journal.id(req.params.itemId);
+    const pantry = currentUser.pantry.id(req.params.itemId);
     // Use the Mongoose .set() method, updating the current application to reflect the new form data on `req.body`
-    journal.set(req.body);
+    pantry.set(req.body);
     // Save the current user
     await currentUser.save();
     // Redirect back to the show view of the current application
     res.redirect(
-      `/users/${currentUser._id}/entries/${req.params.itemId}`
+     `/users/${currentUser._id}/foods/${req.params.itemId}`
     );
   } catch (error) {
     console.log(error);

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const entrySchema = new mongoose.Schema({
+const foodSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  journal: [entrySchema],
+  pantry: [foodSchema],
 });
 
 const User = mongoose.model('User', userSchema);

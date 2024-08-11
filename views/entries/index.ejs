@@ -7,10 +7,10 @@
   <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1>Welcome to my Journal</h1>
-    <a href="/users/<%= user._id %>/entries/new">Add New Item</a>
-    <% if (journal.length > 0) { %>
-        <% journal.forEach((food) => { %>
-            <a href="/users/<%= user._id %>/entries/<%= food._id %>">
+    <a href="/users/<%= user._id %>/foods/new">Add New Item</a>
+    <% if (pantry.length > 0) { %>
+        <% pantry.forEach((food) => { %>
+            <a href="/users/<%= user._id %>/foods/<%= food._id %>">
                 <li><%= food.name %></li>
             </a>
         <% }); %>

@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 import express from 'express';
-const app = express()
+const app = express();
 import mongoose from 'mongoose';
 import methodOverride from 'method-override';
 import morgan from 'morgan';
@@ -62,10 +62,20 @@ app.get('/users/show/:id', async(req,res) => {
 })
 
 
+
+app.get('/vip-lounge', (req, res) => {
+  if (req.session.user) {
+    res.send(`Welcome to the party ${req.session.user.username}.`);
+  } else {
+    res.send('Sorry, no guests allowed.');
+  }
+});
+
+
 app.use(passUserToView)
 app.use('/auth', authController);
 app.use(isSignedIn);
-app.use('/users/:userId/entries', entriesController);
+app.use('/users/:userId/foods', entriesController);
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
