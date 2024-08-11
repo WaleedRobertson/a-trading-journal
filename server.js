@@ -5,6 +5,7 @@ const app = express();
 import mongoose from 'mongoose';
 import methodOverride from 'method-override';
 import morgan from 'morgan';
+import path from "path";
 import session from 'express-session';
 import isSignedIn from './middleware/is-signed-in.js';
 import passUserToView from './middleware/pass-user-to-view.js';
@@ -22,6 +23,10 @@ mongoose.connection.on('connected', () => {
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 // app.use(morgan('dev'));
+
+app.use(express.static(path.join(__dirname, "public")));
+
+
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
