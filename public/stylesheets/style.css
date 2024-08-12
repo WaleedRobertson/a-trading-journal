@@ -25,11 +25,7 @@ body {
     color: #fff;
     text-decoration: none;
   }
-
- 
-  
-  
-  nav {
+ nav {
     display: flex;
     justify-content: space-between; 
     align-items: center; 
@@ -52,6 +48,10 @@ body {
   }
    
   nav ul li a:hover {
-    color: rgb(0, 255, 4);
+    color: limegreen;
+  }
+
+  a:hover {
+    color: limegreen; 
   }
   
