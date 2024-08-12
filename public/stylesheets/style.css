@@ -7,6 +7,7 @@ body {
     color: #fff;
     margin: 0;
     padding: 0;
+    text-align: center;
   }
   
   h1, h2, h3 {
@@ -23,6 +24,10 @@ body {
   a {
     color: #fff;
     text-decoration: none;
+  }
+
+  a:hover {
+
   }
   
   /* Add more elements and styles as needed */
@@ -48,3 +53,7 @@ body {
     text-decoration: none;
   }
    
+  nav ul li a:hover {
+    color: rgb(0, 255, 4);
+  }
+  
